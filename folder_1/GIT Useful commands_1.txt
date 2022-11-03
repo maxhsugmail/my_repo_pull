@@ -1,0 +1,148 @@
+naveen@technotrainer.com
+
+Thanks Naveen; training us on SSH Pub/Private key remote  connection, git commands, GitHub repository, maven, 
+Jenkins master/agent  and,CI/CM pipeline setup/scripts/build
+
+
+----------------------------------------------------------------------------------
+Lab 1
+----------------------------------------------------------------------------------
+use pem 
+test ssh login to linux W/S
+ssh -i C:\Users\Thsu\Desktop\A_A_TRAINING\TECHNICAL\1_A_JEKIN_JAVA\LAB\gmj-public-1aug22.pem ubuntu@44.201.53.241
+??? different between github and gitlab
+gitlab conver jenkin 
+
+useful git commnad
+-- disconnect connect USPTO VPN ---------
+go to root of plan to check out directory
+mkdir my-repo
+cd ~/my-repo
+
+----------------------------------------------------------------------------------
+Lab 2
+----------------------------------------------------------------------------------
+git --version
+git config --global init.defaultBranch main
+git config --global user.name "Max Hsu"
+git config --global user.email "max.hsu.usa@gmail.com"
+git config --global --list
+export EDITOR=vi
+
+git add file   (to stage the file)
+git add .    (put all repository folders/files to stage area)
+
+git status
+git commit -m "reason"
+git log
+git show <sha/commit id>
+get diff <1st sha> <2nd sha>
+----------------------------------------------------------------------------------
+Lab 3
+----------------------------------------------------------------------------------
+git branch   (verify branch)
+git checkout -b "branchname"
+git checkout -b testing (create new branch)
+git checkout main/master  (change branch)
+go to main/master branch 
+git merge testing
+get branch -D 'brachname'  (delete branch)
+
+----------------------------------------------------------------------------------
+Lab 4
+----------------------------------------------------------------------------------
+create repository from githup and copy the SSH URL  (not https URL)
+
+git remote add origin <url-you-copied-from-github>    (connect from laptop to Github repository web site)
+git remote add origin git@github.com:maxhsugmail/repo-lab.git
+
+git remote -v  (verify github URL mapping)
+ubuntu@ip-10-0-0-157:~/my-repo$ git remote -v
+origin  git@github.com:maxhsugmail/repo-lab.git (fetch)
+origin  git@github.com:maxhsugmail/repo-lab.git (push)
+
+cd ../my-repo;git remote rm origin; git remote add origin git@github.com:maxhsugmail/repo-lab.git;git remote -v;git pull origin master
+
+cd ../java-springboot-sample-app;git remote rm origin; git remote add origin git@github.com/maxhsugmail/java-springboot-sample-app.git; git remote -v;git push origin master
+                   
+git push origin master   (push main/master branch to github URL)
+git pull origin master   (push main/master branch to github URL)
+failed ; (a) required SSH key pair
+(a) create SSH key pair
+(b)add public key to github URL
+(c) add private key to your workstation keychain 
+(d) git hub will use the public key (b) to decrypt the communication 
+from the private key from your workstation, authenticating you as authorized user 
+
+
+$ mkdir /home/ubuntu/.ssh
+$ cd ~
+$ ssh-keygen -t rsa -b 4096
+
+Three VERY important things to follow:
+? Do NOT use the default filename of:
+/home/ubuntu/.ssh/id_rsa
+instead use:
+/home/ubuntu/.ssh/repo-key
+? Do not use the ~ shortcut here. Spell out the entire path of:
+/home/ubuntu/.ssh/repo-key
+? Do NOT use a passphrase
+e. Hit enter when requested for a passphrase (leave it empty), confirm with another
+
+verify two files:
+/home/ubuntu/.ssh/repo-key (the private key)
+/home/ubuntu/.ssh/repo-key.pub (the public key)
+
+cat repo-key.pub, then copy the contents
+
+In GitHub, add the PUBLIC key to the GitHub user “settings” (use the ‘settings’ link under
+the user avatar at the top right, NOT the ‘settings’ link in your specific repo)
+
+Go to Settings -> SSH & GPG keys -> SSH Keys
+Click 'New SSH key'
+Title “Public repo-key”
+Paste the entire contents of repo-key.pub into the ‘key’ textbox
+Click ‘Add SSH key’
+Enter your GitHub password if requested
+
+
+$ git push origin main
+fail again
+
+Note: This still fails because you haven’t added this new private key to your keychain so that
+your computer can use it to automatically authenticate to GitHub
+
+Add the PRIVATE key to your workstation keychain (C)
+
+Open the SSH agent interface
+$ eval `ssh-agent`
+
+Note: use backticks (not single-quotes), typically at the top left of the keyboard
+
+35. Add the key to the keychain with
+$ ssh-add path_to_private_key
+
+Example:
+$ ssh-add ~/.ssh/repo-key
+(it is OK to use the ~ shortcut in the ssh-add command
+
+GitHub will use the PUBLIC key that you uploaded to GitHub in step (B) to decrypt the
+communication from the PRIVATE key that you added to your workstation keychain in
+step (C), AUTHENTICATING you as an authorized user (D)
+
+place:
+$ git push origin main
+it shall work
+
+Refresh the GitHub web interface for your repository. You should see your files in the
+repo
+get branch -r
+get fetch .
+
+----------------------------------------------------------------------------------
+Lab 7
+----------------------------------------------------------------------------------
+JENKIN web page : http://3.236.203.108:8080/
+admin
+c1cdftW
+

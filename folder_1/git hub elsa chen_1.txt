@@ -1,0 +1,18 @@
+create a private repository (example: "repo-lab") into GITHUB website
+copy "repo-lab" SHH URL from Code drop down  example: git@github.com:maxhsugmail/repo-lab.git
+
+from laptop
+
+ssh-keygen -t rsa -b 4096  (Do NOT use the default filename,/home/ubuntu/.ssh/id_rsa;  use /home/ubuntu/.ssh/repo-key
+
+home/ubuntu/.ssh/repo-key (the private key)
+/home/ubuntu/.ssh/repo-key.pub (the public key
+
+cat repo-key.pub, then copy the contents to GITHUB Add the PUBLIC key to GitHub (B)
+
+git remote rm origin
+git rmote -v
+git remote add origin git@github.com:maxhsugmail/repo-lab.git
+git rmote -v
+git push origin main
+
