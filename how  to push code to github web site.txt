@@ -1,0 +1,38 @@
+create a repository from https://github.com   ; provide sing in;  from upper/right user profile; select repository; create new repository my-repo
+git remote add origin https://github.com/maxhsugmail/my-repo.git
+
+C:\Users\maxhs\my-repo>git remote add origin https://github.com/maxhsugmail/my-repo.git
+
+C:\Users\maxhs\my-repo>git push -u origin main
+info: please complete authentication in your browser...
+Enumerating objects: 15, done.
+Counting objects: 100% (15/15), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (15/15), done.
+Writing objects: 100% (15/15), 10.74 MiB | 5.85 MiB/s, done.
+Total 15 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), done.
+To https://github.com/maxhsugmail/my-repo.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
+C:\Users\maxhs\my-repo>push -u origin branch_1
+'push' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\maxhs\my-repo>git push -u origin branch_1
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 414 bytes | 414.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'branch_1' on GitHub by visiting:
+remote:      https://github.com/maxhsugmail/my-repo/pull/new/branch_1
+remote:
+To https://github.com/maxhsugmail/my-repo.git
+ * [new branch]      branch_1 -> branch_1
+branch 'branch_1' set up to track 'origin/branch_1'.
+
+C:\Users\maxhs\my-repo>
