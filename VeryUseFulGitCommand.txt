@@ -1,0 +1,55 @@
+
+## 
+
+###########################################################################
+# Verify git is installed
+git --verson
+git config --global init.defaultBranch main
+git config --global user.name "Your-Firstname Your-Lastname"
+git config --global user.email "Your-email@address.com"
+git config --global --list
+
+# how to initial git environment 
+cd to <your source folder>
+git init                # create and initialized hidden ".git" subfolder
+##########################################################################
+
+## how to add files to local git repository 
+git add .               # add all files/subfolders
+git status              # to see there is something to commit
+git commit -m "first time"   
+git log                 # see commit summary
+git show <sha>          # see commit details 
+git diff <1st sha> <2nd sha>       # sha is a 40 bytes long unique identifier  
+
+## how to creat branch
+git branch                 # Current branch denoted by an asterisk (*)
+git checkout -b branch_1   # create and checkout new branch named "branch_1"
+git branch                 # you need to know which branch you are in before adding or updating file 
+git checkout main          # switch to main branch
+git checkout branch_1      # switch to branch_1 branch
+git add branch_1_file.txt  # go to the folder you want to update or add a new file
+git checkout main          # switch to main branch; you will not see the branch_1_file.txt or see your update
+  
+## how to merging
+## make sure you are in the main branch
+git checkout main
+git merge branch_1
+
+
+## how to delete 
+## make sure you are not in the delete branch
+git branch main
+git branch -D branch_1 
+
+###########################################################################
+## Push file to remote github
+$ git remote -v
+$ git remote remove origin
+$ git remote add    origin https://github.com/maxhsugmail/my-repo.git
+$ git push -u 
+$ git push -u origin main
+$ git push -u origin branch_1
+$ git pull origin
+$ git pull origin main
+###########################################################################
